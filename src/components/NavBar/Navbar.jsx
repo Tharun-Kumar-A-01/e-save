@@ -6,6 +6,8 @@ import { JetBrains_Mono } from "next/font/google";
 import Image from "next/image.js";
 import MenuClose from "./menu-icons/MenuClose.jsx";
 import MenuOpen from "./menu-icons/MenuOpen.jsx";
+import { Button } from "@nextui-org/react";
+import Account from "./menu-icons/Account.jsx";
 
 const jetBrainsMono = JetBrains_Mono({
 	subsets: ["latin"],
@@ -31,7 +33,7 @@ const links = [
 export default function NavBar() {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 	const pathName = usePathname();
-  const [session, setSession] = React.useState(false)
+  const [session, setSession] = React.useState(true)
   
 	return (
 		<nav className="w-screen h-16 bg-transparent backdrop-blur-sm z-50 border-b-[1px] border-[#5c5c5c] fixed">
@@ -44,7 +46,7 @@ export default function NavBar() {
 						{" "}
 						{isMenuOpen ? <MenuClose /> : <MenuOpen />}
 					</button>
-          <Image src="/Logo.png" alt="Logo" className="rounded-full mr-2 border-[2px] border-accent" width={40} height={40}/>
+          <Image src="/Logo.png" alt="Logo" className="rounded-full mr-2 border-[2px] border-primary" width={40} height={40}/>
 					<p>E-Save</p>
 				</div>
 				<div className="hidden sm:block animate-appearance-in">
@@ -54,7 +56,7 @@ export default function NavBar() {
 								key={link.path}
 								href={link.path}
 								className={`${
-									link.path == pathName ? "text-accent font-semibold" : "text-text"
+									link.path == pathName ? "text-primary font-semibold" : "text-text"
 								} px-4 `}
 							>
 								{link.title}
@@ -63,18 +65,13 @@ export default function NavBar() {
 					})}
 				</div>
 				<div className="flex flex-row gap-3 items-center">
-            <button
-						className={`${jetBrainsMono.className} text-accent text-sm border-2 bg-transparent border-accent px-3 py-1 pt-2 rounded-lg`}
-					>
-						Log In
-					</button>
-          <p className="font-bold">or</p>
-					<button
-						className={`${jetBrainsMono.className} text-background text-sm border-2 font-bold bg-accent border-accent px-2 py-1 pt-2 rounded-lg`}
-					>
-						Sign Up
-					</button>
-					
+					{
+						session ? (
+							<Account className={`h-12 w-12`}/>
+						):(
+							<Button endContent={<Account/>} variant="flat" color="primary" className="rounded-full">Sign Up</Button>
+						)
+					}
 				</div>
 			</div>
 			{isMenuOpen && (

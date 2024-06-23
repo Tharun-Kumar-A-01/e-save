@@ -1,6 +1,5 @@
 const MenuClose = (props) => {
 
-	const fill = props.fill | "white"
 
 	return (
 		<svg
@@ -8,6 +7,7 @@ const MenuClose = (props) => {
 							height="221"
 							viewBox="0 0 221 221"
 							fill="none"
+							className=" w-5 h-5 fill-primary"
 							xmlns="http://www.w3.org/2000/svg"
 						>
 							<rect
@@ -16,7 +16,7 @@ const MenuClose = (props) => {
 								height="31"
 								rx="15.5"
 								transform="rotate(45 22.9203 0)"
-								fill={fill}
+								fill="white"
 							/>
 							<rect
 								x="0.898453"
@@ -25,7 +25,7 @@ const MenuClose = (props) => {
 								height="31"
 								rx="15.5"
 								transform="rotate(-45 0.898453 198.181)"
-								fill={fill}
+								fill="white"
 							/>
 						</svg>
 	)

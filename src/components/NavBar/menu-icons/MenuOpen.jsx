@@ -1,12 +1,12 @@
 const MenuOpen = (props) => {
 
-	const fill = props.fill | "white"
 
 	return (
 		<svg
 							width="279"
 							height="225"
 							viewBox="0 0 279 225"
+							className=" w-5 h-5 fill-primary"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 						>
@@ -14,21 +14,21 @@ const MenuOpen = (props) => {
 								width="279"
 								height="31"
 								rx="15.5"
-								fill={fill}
+								fill="white"
 							/>
 							<rect
 								y="97"
 								width="279"
 								height="31"
 								rx="15.5"
-								fill={fill}
+								fill="white"
 							/>
 							<rect
 								y="194"
 								width="279"
 								height="31"
 								rx="15.5"
-								fill={fill}
+								fill="white"
 							/>
 						</svg>
 	)
